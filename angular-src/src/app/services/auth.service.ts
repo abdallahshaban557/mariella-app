@@ -64,9 +64,9 @@ export class AuthService {
   //Adjust this once a production app is live and ready
   prepEndpoint(ep){
     if(this.isDev){
-      return 'http://localhost:8080/'+ep;
-    } else {
       return ep;
+    } else {
+      return 'http://localhost:8080/'+ep;
     }
   }
 }
