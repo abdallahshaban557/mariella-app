@@ -13,8 +13,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 import { ValidateService } from './services/validate.service';
-import { FlashMessagesModule } from 'angular2-flash-messages';
-import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service';
+//import { FlashMessagesModule } from 'angular2-flash-messages/module';
+import { FlashMessagesModule } from 'ngx-flash-messages';
+//import { FlashMessagesService } from 'angular2-flash-messages/module/flash-messages.service';
+import { FlashMessagesService } from 'ngx-flash-messages';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
  
@@ -23,7 +25,7 @@ const appRoutes: Routes = [
   {path:'register', component : RegisterComponent},
   {path:'home', component : HomeComponent},
   {path:'login', component : LoginComponent},
-  {path:'dashboard', component : DashboardComponent, canActivate [AuthGuard]},
+  {path:'dashboard', component : DashboardComponent, canActivate: [AuthGuard]},
   {path:'profile', component : ProfileComponent},
 ]
 
@@ -42,6 +44,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
+    //FlashMessagesModule.forRoot()
     FlashMessagesModule
   ],
   providers: [ValidateService, FlashMessagesService, AuthService, AuthGuard],
